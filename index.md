@@ -1,37 +1,11 @@
-## Welcome to GitHub Pages
+# Sans Garage Sale Sinatra Project Blog
 
-You can use the [editor on GitHub](https://github.com/LGmedia954/Sans-Garage-Sale-Sinatra-Project-May-2021/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+### What an incredible and humbling learning experience!
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+I thought it would be fun to use the Corneal gem, but the older versions in Gemfile presented some issues that were difficult to fix. I made the mistake of bundling the gem before updating ActiveRecord to the latest version, which broke my app. I researched online, found some good fixes, and I was able to get it working again. However, I could not db:migrate anything new. Possible solutions that I found online did not work for me here. So I had to revert back to ActiveRecord 4.2 to get migrations running again. Before retiring to bed I asked myself, should I scrap the entire thing and start anew? Dissatisfied, I already knew the answer to this, and I woke up the next morning and created a new, updated repository 2 days into coding my project.
 
-### Markdown
+The greater challenge of the Sinatra Model-View-Controller was params-to-views. That is, following through every step and using binding.pry to ensure that params data was being carried with every line of code. "NoMethodError: undefined method for nil:NilClass..." can be a nuisance if you let it. 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+@item = current_user.items.build(params[:item]) may have worked in building an item, but params were not passed to the READ aspect of Create-Read-Update-Delete. After revisiting the code and working through several approaches to handling this, I found a working solution with @item = user.items.build(name: params["item"]["name"]... breaking down each of the params as outlined in the Sinatra Nested Forms lesson of Learn.co. My last hurdle was getting my edited, Updated Item to show, which was fixed by reordering my lines of code.
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/LGmedia954/Sans-Garage-Sale-Sinatra-Project-May-2021/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+When I began this project, my Category model had a name and a category_id. For the sake of keeping things simple regarding passing params, category_id was moved to the Item model. This got me out of a stuck point and made Post Item work efficiently. The downside is that items were no longer showing up for the category items pages. I plan to revisit this later with a new git branch.
