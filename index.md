@@ -1,6 +1,6 @@
-## Sans Garage Sale Sinatra Project Blog
+# Sans Garage Sale Sinatra Project Blog
 
-What an incredible and humbling learning experience!
+### What an incredible and humbling learning experience!
 
 I thought it would be fun to use the Corneal gem, but the older versions in Gemfile presented some issues that were difficult to fix. I made the mistake of bundling the gem before updating ActiveRecord to the latest version, which broke my app. I researched online, found some good fixes, and I was able to get it working again. However, I could not db:migrate anything new. Possible solutions that I found online did not work for me here. So I had to revert back to ActiveRecord 4.2 to get migrations running again. Before retiring to bed I asked myself, should I scrap the entire thing and start anew? Dissatisfied, I already knew the answer to this, and I woke up the next morning and created a new, updated repository 2 days into coding my project.
 
