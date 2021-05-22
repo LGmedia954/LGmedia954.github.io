@@ -1,0 +1,11 @@
+## Sans Garage Sake Sinatra Project Blog
+
+What an incredible and humbling learning experience!
+
+I thought it would be fun to use the Corneal gem, but the older versions in Gemfile presented some issues that were difficult to fix. I made the mistake of bundling the gem before updating ActiveRecord to the latest version, which broke my app. I researched online, found some good fixes, and I was able to get it working again. However, I could not db:migrate anything new. Possible solutions that I found online did not work for me here. So I had to revert back to ActiveRecord 4.2 to get migrations running again. Before retiring to bed I asked myself, should I scrap the entire thing and start anew? Dissatisfied, I already knew the answer to this, and I woke up the next morning and created a new, updated repository 2 days into coding my project.
+
+The greater challenge of the Sinatra Model-View-Controller was params-to-views. That is, following through every step and using binding.pry to ensure that params data was being carried with every line of code. "NoMethodError: undefined method for nil:NilClass..." can be a nuisance if you let it. 
+
+@item = current_user.items.build(params[:item]) may have worked in building an item, but params were not passed to the READ aspect of Create-Read-Update-Delete. After revisiting the code and working through several approaches to handling this, I found a working solution with @item = user.items.build(name: params["item"]["name"]... breaking down each of the params as outlined in the Sinatra Nested Forms lesson of Learn.co. My last hurdle was getting my edited, Updated Item to show, which was fixed by reordering my lines of code.
+
+When I began this project, my Category model had a name and a category_id. For the sake of keeping things simple regarding passing params, category_id was moved to the Item model. This got me out of a stuck point and made Post Item work efficiently. The downside is that items were no longer showing up for the category items pages. I plan to revisit this later with a new git branch.
