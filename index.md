@@ -1,4 +1,4 @@
-## Sans Garage Sake Sinatra Project Blog
+## Sans Garage Sale Sinatra Project Blog
 
 What an incredible and humbling learning experience!
 
